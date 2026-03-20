@@ -72,6 +72,29 @@
       color: var(--text);
     }
 
+    .hero-title {
+      text-align: center;
+      padding: 1.5rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-logo {
+      height: 140px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .hero-subtitle {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
     .header-actions {
       display: flex;
       align-items: center;
@@ -273,48 +296,8 @@
       font-size: 0.88rem;
       line-height: 1.7;
       color: var(--text);
+      white-space: pre-line;
       margin-bottom: 1.5rem;
-    }
-
-    .modal-actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-    }
-
-    .btn {
-      padding: 0.65rem 1rem;
-      border-radius: 6px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: block;
-    }
-
-    .btn-donate {
-      background: var(--purple);
-      color: #fff;
-      border: 1px solid var(--purple);
-    }
-
-    .btn-donate:hover {
-      filter: brightness(1.15);
-    }
-
-    .btn-help {
-      background: none;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-
-    .btn-help:hover {
-      border-color: var(--purple);
-      color: var(--purple);
     }
 
     /* ── Custom dropdown ── */
@@ -414,85 +397,6 @@
       padding: 0.75rem 0 1rem;
     }
 
-    /* ── Fanbases section ── */
-    .fanbases {
-      padding: 2.5rem 2.5rem 3.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .fanbases-heading {
-      text-align: center;
-      font-size: 0.7rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-    }
-
-    .fanbases-heading span {
-      display: inline-block;
-      position: relative;
-    }
-
-    .fanbases-heading span::before,
-    .fanbases-heading span::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      width: 3rem;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .fanbases-heading span::before { right: calc(100% + 0.9rem); }
-    .fanbases-heading span::after  { left:  calc(100% + 0.9rem); }
-
-    .fanbases-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.75rem 2.25rem;
-    }
-
-    .fanbase-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .fanbase-logo {
-      width: 76px;
-      height: 76px;
-      border-radius: 50%;
-      background: var(--bg-secondary);
-      border: 1.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-    }
-
-    .fanbase-logo:hover {
-      border-color: var(--purple);
-      box-shadow: 0 0 14px var(--purple-glow);
-      transform: translateY(-2px);
-    }
-
-    .fanbase-logo svg {
-      opacity: 0.2;
-    }
-
-    .fanbase-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      text-align: center;
-      max-width: 82px;
-      line-height: 1.4;
-    }
-
     /* ── Mobile scrollbar ── */
     @media (max-width: 680px) {
       ::-webkit-scrollbar {
@@ -544,10 +448,21 @@
         min-width: 100%;
       }
 
-      /* Map: leave ~72px so fanbases heading peeks into view */
+      .hero-logo {
+        height: 80px;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .hero-title {
+        padding: 1rem 1rem 0.5rem;
+      }
+
       .map-wrap {
         flex: none;
-        height: calc(100dvh - 90px - 72px);
+        height: calc(100dvh - 90px - 160px);
         padding: 0;
         overflow: hidden;
         align-items: stretch;
@@ -564,24 +479,7 @@
       /* Hide the hint */
       .hint { display: none; }
 
-      /* Fanbases: compact on mobile */
-      .fanbases {
-        padding: 2rem 1.25rem 3rem;
-      }
 
-      .fanbase-logo {
-        width: 62px;
-        height: 62px;
-      }
-
-      .fanbase-logo svg {
-        width: 26px;
-        height: 26px;
-      }
-
-      .fanbases-grid {
-        gap: 1.25rem 1.5rem;
-      }
 
       /* Floating centered modal on mobile */
       .overlay {
@@ -605,7 +503,6 @@
     @media (max-width: 400px) {
       h1 { font-size: 0.85rem; letter-spacing: 0.15em; }
       .theme-btn { padding: 0.35rem 0.6rem; font-size: 0.7rem; }
-      .modal-actions { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -632,91 +529,16 @@
     </div>
   </header>
 
+  <div class="hero-title">
+    <img src="ARIRANG-CompleteRed (2).png" alt="ARIRANG" class="hero-logo">
+    <div class="hero-subtitle">GOALS</div>
+  </div>
+
   <div class="map-wrap">
     <svg id="world-map" viewBox="0 0 960 500"></svg>
   </div>
 
   <p class="hint">Scroll to zoom &nbsp;·&nbsp; Drag to pan &nbsp;·&nbsp; Click member nations for details</p>
-
-  <!-- Participating Fanbases -->
-  <section class="fanbases">
-    <div class="fanbases-heading"><span>Participating Fanbases</span></div>
-    <div class="fanbases-grid">
-
-      <div class="fanbase-item">
-        <div class="fanbase-logo">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-        <span class="fanbase-label">Fanbase Name</span>
-      </div>
-
-      <div class="fanbase-item">
-        <div class="fanbase-logo">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-        <span class="fanbase-label">Fanbase Name</span>
-      </div>
-
-      <div class="fanbase-item">
-        <div class="fanbase-logo">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-        <span class="fanbase-label">Fanbase Name</span>
-      </div>
-
-      <div class="fanbase-item">
-        <div class="fanbase-logo">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-        <span class="fanbase-label">Fanbase Name</span>
-      </div>
-
-      <div class="fanbase-item">
-        <div class="fanbase-logo">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-        <span class="fanbase-label">Fanbase Name</span>
-      </div>
-
-      <div class="fanbase-item">
-        <div class="fanbase-logo">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-        <span class="fanbase-label">Fanbase Name</span>
-      </div>
-
-      <div class="fanbase-item">
-        <div class="fanbase-logo">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-        <span class="fanbase-label">Fanbase Name</span>
-      </div>
-
-      <div class="fanbase-item">
-        <div class="fanbase-logo">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-        </div>
-        <span class="fanbase-label">Fanbase Name</span>
-      </div>
-
-    </div>
-  </section>
 
   <!-- Tooltip -->
   <div id="tooltip"></div>
@@ -733,12 +555,8 @@
         </div>
       </div>
       <div class="modal-divider"></div>
-      <div class="modal-goals-label">Goals</div>
+      <div class="modal-goals-label">'ARIRANG' Goals</div>
       <div class="modal-goals-text" id="m-goals"></div>
-      <div class="modal-actions">
-        <a class="btn btn-donate" id="m-donate" href="#" target="_blank" rel="noopener">Donate</a>
-        <a class="btn btn-help"   id="m-help"   href="#" target="_blank" rel="noopener">Share</a>
-      </div>
     </div>
   </div>
 
@@ -749,82 +567,56 @@
     const MEMBERS = {
       "051": {
         name: "Armenia",     flag: "🇦🇲",
-        goals:      "Placeholder — goals for Armenia coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\nNo charts\n\nApple Music\n'SWIM' - Top 50\nB-sides - Top 100\nTop Albums - #1",
       },
       "031": {
         name: "Azerbaijan",  flag: "🇦🇿",
-        goals:      "Placeholder — goals for Azerbaijan coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\nNo charts\n\nApple Music\n'SWIM' - Top 50\nTop Albums - #1",
       },
       "356": {
         name: "India",       flag: "🇮🇳",
-        goals:      "Placeholder — goals for India coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\n'SWIM' - 450k\nB-sides - 23k\n\nApple Music\n'SWIM' - Top 100 entry",
       },
       "360": {
         name: "Indonesia",   flag: "🇮🇩",
-        goals:      "Placeholder — goals for Indonesia coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\n'SWIM' - 500k\nB-sides - 200k\n\nApple Music\n'SWIM' - Top 50\nB-sides - Top 100\nTop Albums - #1\nTop Videos - #1\n\nYouTube / YouTube Music\nTrending Music - Top 5\nDaily Top MVs - Top 10\nWeekly Top Songs - Top 10",
       },
       "458": {
         name: "Malaysia",    flag: "🇲🇾",
-        goals:      "Placeholder — goals for Malaysia coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\n'SWIM' - 180k\nB-sides - 30k\nWeekly Top Albums - 550k\n\nApple Music\n'SWIM' - Top 100\nB-sides - Top 100\nTop 25 City 'SWIM' - Top 25\nTop Albums - #1\nTop Videos - #1\n\nYouTube / YouTube Music\nTrending Music - Top 20\nDaily Top MVs - Top 20\nWeekly Top Songs - Top 20",
       },
       "586": {
         name: "Pakistan",    flag: "🇵🇰",
-        goals:      "Placeholder — goals for Pakistan coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\n'SWIM' - 60k\nB-sides - 16k\nWeekly Top Albums - #1\n\nYouTube / YouTube Music\nTrending Music - Top 5\nDaily Top MVs - Top 20\nWeekly Top Songs - Top 20\nWeekly Top Artist - Top 20",
       },
       "608": {
         name: "Philippines", flag: "🇵🇭",
-        goals:      "Placeholder — goals for the Philippines coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\n'SWIM' - 700k\nB-sides - 300k\n\nApple Music\n'SWIM' - Top 20\nB-sides - Top 50\nTop 25 City 'SWIM' - Top 5\nTop Albums - #1\nTop Videos - #1",
       },
       "702": {
         name: "Singapore",   flag: "🇸🇬",
-        goals:      "Placeholder — goals for Singapore coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "No specific goals set yet.",
         minZoom:    45,
       },
       "144": {
         name: "Sri Lanka",   flag: "🇱🇰",
-        goals:      "Placeholder — goals for Sri Lanka coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Apple Music\nDaily Top 100\n'SWIM' - Top 50\nB-sides - Top 100\nTop Albums - #1\nTop Videos - #1\n\niTunes\nTop Songs\n'SWIM' - #1\nTop Albums - #1",
       },
       "158": {
         name: "Taiwan",      flag: "🇹🇼",
-        goals:      "Placeholder — goals for Taiwan coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\nDaily Top Song\n'SWIM' - 50K\nB-sides - 20K\nWeekly Top Albums - 250K\n\nApple Music\nDaily Top 100\n'SWIM' - Top 1\nB-sides - Top 50\nTop 25 City - #1\nTop Albums - #1\nTop Videos - #1\n\nYouTube / YouTube Music\nTrending Music - Top 10\nDaily Top MVs - Top 5\nWeekly Top Songs - Top 5\nWeekly Top Artist - Top 10\n\niTunes\nTop Songs\n'SWIM' - #1\nB-sides - Top 10\nTop Albums - #1",
       },
       "764": {
         name: "Thailand",    flag: "🇹🇭",
-        goals:      "Placeholder — goals for Thailand coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\nDaily Top Song\n'SWIM' - 1.7M\nB-sides - 2.5M (1st Day)\nWeekly Top Albums - #1\n\nApple Music\nDaily Top 100\n'SWIM' - Top 1\nB-sides - Top 100\nTop Albums - #1\nTop Videos - #1\n\nYouTube / YouTube Music\nTrending Music - #1\nDaily Top MVs - #1\nWeekly Top Songs - #1\nWeekly Top Artist - #1\n\niTunes\nTop Songs\n'SWIM' - #1\nB-sides - Top 2-14\nTop Albums - #1\nTop MVs - #1",
       },
       "792": {
         name: "Turkey",      flag: "🇹🇷",
-        goals:      "Placeholder — goals for Turkey coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\nDaily Top Song\n'SWIM' - 300K\nB-sides - 100K\nWeekly Top Albums - #1\n\nApple Music\nDaily Top 100\n'SWIM' - Top 10\nB-sides - Top 100\nTop Albums - #1\nTop Videos - #1\n\nYouTube / YouTube Music\nTrending Music - Top 5\nDaily Top MVs - Top 20\nWeekly Top Songs - Top 5\nWeekly Top Artist - Top 20\n\niTunes\nTop Songs\n'SWIM' - #1\nB-sides - Top 14\nTop Albums - #1\nTop MVs - #1",
       },
       "704": {
         name: "Vietnam",     flag: "🇻🇳",
-        goals:      "Placeholder — goals for Vietnam coming soon.",
-        donateUrl:  "#",
-        helpUrl:    "#",
+        goals:      "Spotify\nDaily Top Song\n'SWIM' - 1.2M\nB-sides - 2M\nWeekly Top Albums - #1\n\nApple Music\nDaily Top 100\n'SWIM' - Top 1\nB-sides - Top 30\nTop Albums - #1\nTop Videos - #1\n\nYouTube / YouTube Music\nTrending Music - Top 1\nWeekly Top Songs - Top 1\nWeekly Top Artist - Top 1",
       },
     };
 
@@ -1005,8 +797,6 @@
       document.getElementById("m-name").textContent  = data.name;
       document.getElementById("m-region").textContent = "";
       document.getElementById("m-goals").textContent = data.goals;
-      document.getElementById("m-donate").href       = data.donateUrl;
-      document.getElementById("m-help").href         = data.helpUrl;
       document.getElementById("overlay").classList.add("open");
     }
 
